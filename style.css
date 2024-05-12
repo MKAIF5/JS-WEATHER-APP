@@ -11,7 +11,7 @@ body {
   justify-content: center;
   align-items: center;
   font-family: sans-serif;
-  background-size: cover,contain;
+  background-size: cover, contain;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -85,24 +85,52 @@ main li {
   color: white;
   border-radius: 10px;
   padding: 20px 10px;
-  background-image: linear-gradient(
-    to bottom,
-    transparent 50%,
-    #0003 50%,
-  );
+  background-image: linear-gradient(to bottom, transparent 50%, #0003 50%);
   font-weight: bold;
   font-size: small;
 }
-main li i{
-    font-size: 2em;
-    display: block !important;
-    margin: 20px 0;
+main li i {
+  font-size: 2em;
+  display: block !important;
+  margin: 20px 0;
 }
 
-main li:nth-child(2){
-background-color: #b56291;
+main li:nth-child(2) {
+  background-color: #b56291;
 }
 
-main li:nth-child(3){
+main li:nth-child(3) {
   background-color: #48567b;
+}
+
+main.error {
+  animation: errorEffect 0.3s Linear 1;
+}
+
+@keyframes errorEffect {
+  0% {
+    transform: translate(10px, 5px);
+  }
+
+  25% {
+    transform: translate(-5px, 0);
+  }
+
+  50% {
+    transform: translate(8px, 2px);
+  }
+
+  75% {
+    transform: translate(-2px, 5px);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+h1{
+  font-size: 20px;
+  text-align: center;
+  color: rgb(85, 82, 82);
 }

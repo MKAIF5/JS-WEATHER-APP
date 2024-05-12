@@ -14,13 +14,20 @@ form.addEventListener("submit", (event) => {
   }
 });
 
-let id = "9505fd1df737e20152fbd78cdb289b6a"
-let url = "https://api.openweathermap.org/data/2.5/weather?units=metric&appid" + id
+let id = "9505fd1df737e20152fbd78cdb289b6a";
+let url =
+  "https://api.openweathermap.org/data/2.5/weather?units=metric&appid=" + id;
 
-const searchWeather = () =>{
-    fetch(url )
-    .then(responsive => responsive.json())
-    .then(data =>{
-        console.log((data));
-    })
-}
+const searchWeather = () => {
+  fetch(url + "&q=" + getInput.value)
+    .then((responsive) => responsive.json())
+    .then((data) => {
+      console.log(data);
+      if (data.cod == 200) {
+        city.querySelector("figcaption").innerHTML = data.name;
+        city.querySelector("img").src = 'https://flagsapi.com/'+data.sys.country+'/shiny/32.png'
+      
+        temperature.querySelector("img").src = 'http:openweathermap.org/img/wn/'+data.weather[0].icon+'@4x.png'
+    }
+    });
+};

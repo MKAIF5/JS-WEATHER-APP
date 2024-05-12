@@ -16,16 +16,16 @@
   <body>
     <main>
       <form action="">
-        <input type="text" name="" id="" autocomplete="off" />
+        <input type="text" name="" id="inp" autocomplete="off" />
         <button><i class="fa-solid fa-magnifying-glass"></i></button>
       </form>
 
       <section class="result">
-        <figure class="name">
-          <figcaption>london</figcaption>
+        <figure class="name" id="city">
+          <figcaption>London</figcaption>
           <img src="https://flagsapi.com/GB/shiny/32.png" alt="">
         </figure>
-        <figure class="temperature">
+        <figure class="temperature" id="temp">
           <img src="http:openweathermap.org/img/wn/10d@4x.png" alt="">
           <figcaption>
             <span>31</span>
@@ -39,17 +39,17 @@
           <li>
             <span>Clouds</span>
             <i class="fa-solid fa-cloud"></i>
-            <span>98</span>%
+            <span id="clouds">98</span>%
           </li>
           <li>
-            <span>Humitidity</span>
+            <span>Humidity</span>
             <i class="fa-solid fa-droplet"></i>
-            <span>55</span>%
+            <span id="humidity">55</span>%
           </li>
           <li>
             <span>Pressure</span>
             <i class="fa-solid fa-gauge"></i>
-            <span>1001</span>hpa
+            <span id="pressure">1001</span>hpa
           </li>
         </ul>
       </section>

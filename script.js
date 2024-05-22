@@ -46,3 +46,5 @@ const searchWeather = () => {
       getInput.value = " ";
     });
 };
+
+

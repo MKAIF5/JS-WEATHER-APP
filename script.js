@@ -21,6 +21,9 @@ let url ="https://api.openweathermap.org/data/2.5/weather?units=metric&appid=" +
   
   
   const searchWeather = async () => {
+    try {
+      
+    
   fetch( await url + "&q=" + getInput.value)
     .then((responsive) => responsive.json())
     .then( (data) => {
@@ -45,5 +48,9 @@ let url ="https://api.openweathermap.org/data/2.5/weather?units=metric&appid=" +
         }, 1000);
       }
       getInput.value = " ";
+      
     });
+  } catch (error) {
+    console.log("error you are valid city name");    
+  }
 };

@@ -41,11 +41,11 @@ let url ="https://api.openweathermap.org/data/2.5/weather?units=metric&appid=" +
         humidity.innerText = data.main.humidity;
         pressure.innerText = data.main.pressure;
       } else {
-        //false
-        main.classList.add("error");
-        setTimeout(() => {
-            main.classList.remove("error")
-        }, 1000);
+        swal({
+          title:"OOPS!",
+          text:"Please Enter A Valid City Name",
+          icon:"error"
+        });
       }
       getInput.value = " ";
       

@@ -8,7 +8,7 @@ let pressure = document.getElementById("pressure");
 let form = document.querySelector("form");
 let main = document.querySelector("main");
 
-form.addEventListener("submit", (event) => {
+form.addEventListener("submit",  (event) => {
   event.preventDefault();
   if (getInput.value != "") {
     searchWeather();
@@ -16,11 +16,13 @@ form.addEventListener("submit", (event) => {
 });
 
 let id = "9505fd1df737e20152fbd78cdb289b6a";
-let url =
-  "https://api.openweathermap.org/data/2.5/weather?units=metric&appid=" + id;
+let url ="https://api.openweathermap.org/data/2.5/weather?units=metric&appid=" + id;
 
-const searchWeather = () => {
-  fetch(url + "&q=" + getInput.value)
+  
+  
+  
+  const searchWeather = async () => {
+  fetch( await url + "&q=" + getInput.value)
     .then((responsive) => responsive.json())
     .then((data) => {
       console.log(data);
@@ -46,5 +48,3 @@ const searchWeather = () => {
       getInput.value = " ";
     });
 };
-
-

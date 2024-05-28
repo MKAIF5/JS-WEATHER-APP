@@ -14,7 +14,6 @@ form.addEventListener("submit",  (event) => {
     searchWeather();
   }
 });
-
 let id = "9505fd1df737e20152fbd78cdb289b6a";
 let url ="https://api.openweathermap.org/data/2.5/weather?units=metric&appid=" + id;
 
@@ -24,7 +23,7 @@ let url ="https://api.openweathermap.org/data/2.5/weather?units=metric&appid=" +
   const searchWeather = async () => {
   fetch( await url + "&q=" + getInput.value)
     .then((responsive) => responsive.json())
-    .then((data) => {
+    .then( (data) => {
       console.log(data);
       if (data.cod == 200) {
         city.querySelector("figcaption").innerHTML = data.name;

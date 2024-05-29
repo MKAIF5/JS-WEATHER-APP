@@ -8,49 +8,60 @@ let pressure = document.getElementById("pressure");
 let form = document.querySelector("form");
 let main = document.querySelector("main");
 
-form.addEventListener("submit",  (event) => {
+form.addEventListener("submit", (event) => {
   event.preventDefault();
+  
   if (getInput.value != "") {
     searchWeather();
   }
+
 });
 let id = "9505fd1df737e20152fbd78cdb289b6a";
-let url ="https://api.openweathermap.org/data/2.5/weather?units=metric&appid=" + id;
+let url = "https://api.openweathermap.org/data/2.5/weather?units=metric&appid=" + id;
+
+
+
+
+const searchWeather = async () => {
+  
+
+  // city.style.width = "20%"
+  // city.style.marginTop = "10%"
+  // city.style.display = "block"
+  // city.style.display = 'none'
 
   
-  
-  
-  const searchWeather = async () => {
-    try {
-      
+  try {
     
-  fetch( await url + "&q=" + getInput.value)
+    fetch(await url + "&q=" + getInput.value)
     .then((responsive) => responsive.json())
-    .then( (data) => {
+    .then((data) => {
       console.log(data);
       if (data.cod == 200) {
         city.querySelector("figcaption").innerHTML = data.name;
         city.querySelector("img").src =
-          "https://flagsapi.com/" + data.sys.country + "/shiny/32.png";
+        "https://flagsapi.com/" + data.sys.country + "/shiny/32.png";
+        
+          temperature.querySelector("img").src =
+            "http:openweathermap.org/img/wn/" + data.weather[0].icon + "@4x.png";
+          temperature.querySelector("figcaption span").innerText = data.main.temp;
+          description.innerHTML = data.weather[0].description;
+          clouds.innerHTML = data.clouds.all;
+          humidity.innerText = data.main.humidity;
+          pressure.innerText = data.main.pressure;
+        } else {
+          setTimeout(() => {
+            swal({
+              title: "OOPS!",
+              text: "Please Enter A Valid City Name",
+              icon: "error"
+            });
+          }, 10);
+        }
+        getInput.value = " ";
 
-        temperature.querySelector("img").src =
-          "http:openweathermap.org/img/wn/" + data.weather[0].icon + "@4x.png";
-        temperature.querySelector("figcaption span").innerText = data.main.temp;
-        description.innerHTML = data.weather[0].description;
-        clouds.innerHTML = data.clouds.all;
-        humidity.innerText = data.main.humidity;
-        pressure.innerText = data.main.pressure;
-      } else {
-        swal({
-          title:"OOPS!",
-          text:"Please Enter A Valid City Name",
-          icon:"error"
-        });
-      }
-      getInput.value = " ";
-      
-    });
+      });
   } catch (error) {
-    console.log("error you are valid city name");    
+    console.log("error you are valid city name");
   }
 };

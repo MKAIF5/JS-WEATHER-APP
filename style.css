@@ -134,3 +134,26 @@ h1 {
   text-align: center;
   color: rgb(85, 82, 82);
 }
+
+.loader{
+  pointer-events: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: black;
+  display: flex;
+  justify-content: center;
+  animation: an1 1s ease infinite;
+
+}
+
+@keyframes an1{
+  0%{
+    transform: rotate(0turn);
+  }
+
+  100%{
+    transform: rotate(1turn);
+  }
+}

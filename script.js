@@ -14,7 +14,7 @@ form.addEventListener("submit", (event) => {
   if (getInput.value != "") {
     searchWeather();
   }
-
+  
 });
 let id = "9505fd1df737e20152fbd78cdb289b6a";
 let url = "https://api.openweathermap.org/data/2.5/weather?units=metric&appid=" + id;
@@ -24,23 +24,19 @@ let url = "https://api.openweathermap.org/data/2.5/weather?units=metric&appid=" 
 
 const searchWeather = async () => {
   
-
-  // city.style.width = "20%"
-  // city.style.marginTop = "10%"
-  // city.style.display = "block"
-  // city.style.display = 'none'
-
+  
   
   try {
     
-    fetch(await url + "&q=" + getInput.value)
-    .then((responsive) => responsive.json())
-    .then((data) => {
-      console.log(data);
-      if (data.cod == 200) {
-        city.querySelector("figcaption").innerHTML = data.name;
-        city.querySelector("img").src =
-        "https://flagsapi.com/" + data.sys.country + "/shiny/32.png";
+      
+      fetch(await url + "&q=" + getInput.value)
+      .then((responsive) => responsive.json())
+      .then((data) => {
+        console.log(data);
+        if (data.cod == 200) {
+          city.querySelector("figcaption").innerHTML = data.name;
+          city.querySelector("img").src =
+          "https://flagsapi.com/" + data.sys.country + "/shiny/32.png";
         
           temperature.querySelector("img").src =
             "http:openweathermap.org/img/wn/" + data.weather[0].icon + "@4x.png";
@@ -58,6 +54,7 @@ const searchWeather = async () => {
             });
           }, 10);
         }
+    
         getInput.value = " ";
 
       });
